@@ -1,0 +1,111 @@
+creating a table
+CREATE TABLE database_name.table_name(
+   column1 datatype PRIMARY KEY(one or more columns),
+   column2 datatype,
+   column3 datatype,
+   .....
+   columnN datatype
+);
+
+example :  CREATE TABLE COMPANY(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);
+---------------------------------------------------------------
+DROP TABLE database_name.table_name;
+
+----------------------------------------------------------------
+alter table ->supports renaming table name and adding extra column
+
+ALTER TABLE database_name.table_name RENAME TO new_table_name;
+ALTER TABLE database_name.table_name ADD COLUMN column_def...;
+----------------------------------------------------------------
+update table
+
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+
+-----------------------------------------------------------
+delete command
+
+DELETE FROM Students WHERE StudentId = 11 OR StudentId = 12;
+
+
+-------------------------------------------------------------------
+
+foreign key
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID) / FOREIGN KEY (PersonID) REFERENCES Persons (PersonID) ON DELETE CASCADE
+
+); 
+
+
+create table employee(id int primary key,emp_name text,age int,dep_id int foriegn key references deaprtment(id));
+
+make sure PRAGMA foreign_keys = ON;
+---------------------------------------------------------------
+
+INSERT INTO TABLE_NAME VALUES (value1,value2,value3,...valueN);
+
+example : INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)
+VALUES (1, 'Paul', 32, 'California', 20000.00 );
+
+INSERT INTO COMPANY VALUES (7, 'James', 24, 'Houston', 10000.00 );
+
+--------------------------------------------------------------
+
+
+SELECT column1, column2, columnN FROM table_name;
+SELECT * FROM table_name;
+
+sqlite>.header on
+sqlite>.mode column
+sqlite> SELECT * FROM COMPANY;
+
+--------------------------------------------------------------------
+importing csv file
+sqlite> .mode csv
+sqlite> .import /home/divakar/Desktop/city.csv citytable
+sqlite> .schema citytable
+sqlite> select * FROM citytable;
+
+
+---------------------------------------------------------------------
+
+update command
+
+UPDATE table_name
+SET column_name = 3 
+WHERE rowno = 6;
+
+
+delete command
+
+DELETE FROM table_name WHERE column_name = val1 OR column_name = val2;
+
+
+----------------------------------------------------------------------
+mydb
+CREATE TABLE test11 (qno INT PRIMARY KEY NOT NULL UNIQUE,question text,description text,imagepath text,option1 text,option2 text,option3 text,option4 text,option5 text)
+
+Limit and offset command 
+SELECT
+ trackId,
+ name
+FROM
+ tracks
+LIMIT 10 OFFSET 10;
+
+
+
+
+
+

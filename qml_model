@@ -1,0 +1,23 @@
+cpp object
+modelData
+model.modelData.property
+
+qml datamodel
+accessing property of listview from delegate
+idname.ListView.view.property
+idname.GridView.view.property
+accessing property of model from delegate
+idname.ListView.view.model.property
+model.type
+
+Models that do not have named roles (such as the ListModel shown below) will have the data provided via the modelData role. The modelData role is 
+also provided for models that have only one role. In this case the modelData role contains the same data as the named role.
+
+
+DelegateModel
+The DelegateModel type encapsulates a model and the delegate that will be instantiated for items in the model.
+
+It is usually not necessary to create a DelegateModel. However, it can be useful for manipulating and accessing the modelIndex when a 
+QAbstractItemModel subclass is used as the model. Also, DelegateModel is used together with Package to provide delegates to multiple views, 
+and with DelegateModelGroup to sort and filter delegate items.
+

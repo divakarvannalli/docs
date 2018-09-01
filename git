@@ -1,0 +1,168 @@
+
+version control systems
+svn--->central version control,has only one central repository 
+git----> distributed version control system -evry developer has one local repository
+
+
+
+
+----------------------------------------------------------------------------------------
+
+----------customizing git------------------------------------------------
+git install
+git --version
+git init
+git config --help
+git config --global user.email "divakarnaik.100@gmail.com"
+git config --global user.name "divakarnaik"
+git config --list
+
+----------basic command--------------------------------------------------
+git config --list
+git help <verb> or git <verb> --help
+git status
+git log
+git add -A or git add .gitignore
+git commit -m "first commit"
+git clone <url> <local_dir>
+
+----------------------------------------------------------------------------------------
+working with local repo / or tracking existing project using git
+step1 :  working directory step
+git init  //rm -rf .git to stop tracking the project
+git status   
+touch prog1.c  //create prog1.c
+touch .gitignore   //create a file called gitignore,this is required ignore files which we dont want to commit ex:.pyc file in python code
+git status
+
+step 2 :staging area step
+git add -A or git add .gitignore / git add cpp_1.c
+git status
+
+step 3 :commit to repository
+git commit -m "first commit"
+git status
+git log
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+for workplace example
+----------------------------------------------------------
+step 1: create local repo by cloning & make changes 
+git clone <url> <local_dir>
+git remote -v   info on repository
+git branch -a    branch information
+//make changes to code
+git diff shows changes made
+git status
+
+step2 : staging area
+git add -A
+
+step 3:commit step
+*before commiting do a git pull & git push *
+
+git pull origin master
+git push origin master
+
+---------------------------------------------------------
+by creating new branch and later merging to master
+
+git branch new_branch
+git branch
+git checkout new_branch
+git branch
+*code changes*
+git diff
+git status
+git add -A
+git -m "messge" 
+git push -u origin new_branch
+git branch -a
+
+//unit test
+git checkout master
+git pull origin master
+git branch --merged
+git merge new_branch
+git push origin master
+
+//
+git branch --merged
+git branch -d new_branch
+git branch -a
+git push origin --delete new_branch
+git branch -a
+
+---------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------GITHUB-----------------------------------------------------------
+
+-----------basics and configuration-----------------------------------------
+github->repository which uses git tool
+
+At the heart of GitHub is an open source version control system (VCS) called Git. Git is responsible for everything GitHub-related that happens locally on your computer.
+
+To use Git on the command line, you'll need to download, install, and configure Git on your computer.
+
+download git
+setup username & emailid
+also  authenticate with GitHub using either HTTPS or SSH.
+clone the repo
+there are two ways we can clone 1.hhtps 2.ssh
+If you clone with HTTPS, you can cache your GitHub password in Git using a credential helper.
+if you clone with SSH, you must generate SSH keys on each computer you use to push or pull from GitHub.
+
+If you're cloning GitHub repositories using HTTPS, you can use a credential helper to tell Git to remember your GitHub username and password every time it talks to GitHub.
+Turn on the credential helper so that Git will save your password in memory for some time. By default, Git will cache your password for 15 minutes.
+
+Set git to use the credential memory cache
+git config --global credential.helper cache
+
+Set the cache to timeout after 1 hour (setting is in seconds)
+git config --global credential.helper 'cache --timeout=3600'
+
+
+Fork a repo
+A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
+
+
+--------------------------------------------------------How to commit local codebase to github-----------------------------------------------------
+
+1.Create a new repository on GitHub. To avoid errors, do not initialize the new repository with README, license, or gitignore files. 
+You can add these files after your project has been pushed to GitHub. 
+
+2.open terminal
+
+3.Change the current working directory to your local project.
+
+4.Initialize the local directory as a Git repository.
+git init
+
+5.Add the files in your new local repository. This stages them for the first commit.
+git add .
+# Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD YOUR-FILE'.
+
+6.Commit the files that you've staged in your local repository.
+git commit -m "First commit"
+# Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
+
+7.In Terminal, add the URL for the remote repository where your local repository will be pushed.
+
+git remote add origin remote repository URL
+# Sets the new remote
+git remote -v
+# Verifies the new remote URL
+
+10.Push the changes in your local repository to GitHub.before push run pull command
+git pull origin master
+git push origin master
+# Pushes the changes in your local repository up to the remote repository you specified as the origin
+
+
+### command to reset new remote
+ git remote set-url origin
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
