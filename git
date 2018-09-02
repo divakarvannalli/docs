@@ -165,4 +165,8 @@ git push origin master
  git remote set-url origin
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
+Repo --->is a tool built on the top of git to easily work with multiple repos
+repo init,repo sync
+repo init -->
+
 
