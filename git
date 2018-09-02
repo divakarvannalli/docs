@@ -167,6 +167,7 @@ git push origin master
 
 Repo --->is a tool built on the top of git to easily work with multiple repos
 repo init,repo sync
-repo init -->
+repo init --> command initializes repo in the current directory. That's, it downloads the latest repo source
+rep sync ---->updates working tree to the latest revision. That's, it synchronizes local project directories
 
 
